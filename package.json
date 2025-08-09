@@ -1,24 +1,25 @@
 {
-  "name": "image-delivery",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "format": "biome format --write . && prettier --write .",
-    "lint": "biome lint --write .",
-    "check": "biome check --write . && prettier --write ."
-  },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.12.9",
-    "daisyui": "^5.0.50",
-    "tailwindcss": "^4.1.11"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^2.1.4",
-    "prettier": "^3.6.2"
-  }
+	"name": "image-delivery",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"format": "biome format --write . && prettier --write .",
+		"lint": "biome lint --write .",
+		"check": "biome check --write . && prettier --write ."
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.11",
+		"astro": "^5.12.9",
+		"daisyui": "^5.0.50",
+		"tailwindcss": "^4.1.11"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.1.4",
+		"prettier": "^3.6.2",
+		"prettier-plugin-astro": "^0.14.1"
+	}
 }

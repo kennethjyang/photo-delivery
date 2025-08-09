@@ -1,16 +1,20 @@
 ---
-
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Image Delivery">
+    <div class="hero bg-base-200 min-h-screen">
+      <div class="hero-content text-center">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">Kenneth Yang Image Delivery</h1>
+          <p class="py-6">
+            Enter the code Kenneth gave you below to view your photos:
+          </p>
+          
+          <input type="text" placeholder="Your code here..." class="input" />
+          
+          <button class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+</MainLayout>
