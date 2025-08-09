@@ -1,16 +1,18 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro"
+import MainLayout from "../layouts/MainLayout.astro";
+
+const title = "Gallery";
 ---
 
-<MainLayout title="Gallery">
+<MainLayout {title}>
   <!-- Nav bar -->
   <div class="navbar bg-base-100 shadow-sm">
     <div class="flex-1">
-      <a class="btn btn-ghost text-xl">Kenneth Yang Image Delivery</a>
+      <a class="btn btn-ghost text-xl">{title}</a>
     </div>
     <div class="flex-none">
       <ul class="menu menu-horizontal px-1">
-        <li><a>Download</a></li>
+        <li><a>Download All</a></li>
       </ul>
     </div>
   </div>
