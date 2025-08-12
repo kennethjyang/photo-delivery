@@ -1,20 +1,53 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+
+// URL query.
+const searchParameters = Astro.url.searchParams;
+const albumName = searchParameters.get("album");
+const hasAlbumName = albumName !== null && albumName !== "";
+
+
+// Asset collection.
+import { CldImage } from "astro-cloudinary";
+import { getCollection } from "astro:content";
+const assets = await getCollection("assets");
 ---
 
-<MainLayout title="Photo Delivery">
-  <div class="hero bg-base-200 min-h-screen">
-    <div class="hero-content text-center">
-      <div class="max-w-md">
-        <h1 class="text-5xl font-bold">Kenneth Yang <br /> Photo Delivery</h1>
-        <p class="py-6">
-          Enter the code Kenneth gave you below to view your photos:
-        </p>
+<MainLayout title={`${hasAlbumName ? albumName : "Photo Delivery"}`}>
+  {
+    !hasAlbumName && (
+      <div class="hero">
+        <div class="hero-content text-center">
+          <div class="max-w-md">
+            <h1 class="text-5xl font-bold">
+              Kenneth Yang <br /> Photo Delivery
+            </h1>
+            <p class="py-6">Enter an album name below to view photos:</p>
 
-        <input type="text" placeholder="Your code here..." class="input" />
+            <input type="text" placeholder="Album name here..." class="input" />
 
-        <button class="btn btn-primary">Submit</button>
+            <br />
+            <br />
+
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    )
+  }
+  {
+    hasAlbumName &&
+      assets.map((asset) => {
+        return (
+          <li>
+            <CldImage
+              src={asset.data.public_id}
+              width={asset.data.width}
+              height={asset.data.height}
+              alt=""
+            />
+          </li>
+        );
+      })
+  }
 </MainLayout>
