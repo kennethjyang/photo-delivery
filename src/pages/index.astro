@@ -14,7 +14,8 @@ const assets = await getCollection("assets");
 ---
 
 <MainLayout title={`${hasAlbumName ? albumName : "Photo Delivery"}`}>
-  {
+    <p data-url></p>
+    {
     !hasAlbumName && (
       <div class="hero">
         <div class="hero-content text-center">
@@ -51,3 +52,8 @@ const assets = await getCollection("assets");
       })
   }
 </MainLayout>
+
+<script>
+let params = new URLSearchParams(document.location.search);
+document.querySelector('[data-url]').innerHTML = params.get("album");
+</script>
